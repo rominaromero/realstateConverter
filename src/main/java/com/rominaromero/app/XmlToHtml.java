@@ -64,7 +64,7 @@ public class XmlToHtml {
             Template temp = cfg.getTemplate("singleProperty.ftlh");
             
             /* Merge data-model with template */
-            FileWriter fw = new FileWriter("/home/romina/product-"+advertiser.getId()+".html");
+            FileWriter fw = new FileWriter("/home/romina/savo/propiedades/id-"+advertiser.getId()+".html");
             temp.process(root, fw);
         }
     }

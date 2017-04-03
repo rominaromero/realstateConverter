@@ -7,13 +7,13 @@
   <meta http-equiv="content-language" content="es" />
       
   <meta property="og:type" content="article" /> 
-  <meta property="og:title" content="Savo Propiedades - Casas en Monte Grande"/>
-  <meta property="og:description" content="NUEVAS CONDICIONES - CASA EN VENTA - EXCELENTE ZONA - ACEPTA PERMUTA !!  - Savo Propiedades - Casas en Monte Grande"/>
+  <meta property="og:title" content="Savo Propiedades - ${property_type} en ${city_area}"/>
+  <meta property="og:description" content="${title}  - Savo Propiedades - ${property_type} en ${city_area}"/>
   <meta property="og:url" content="http://www.savopropiedades.com.ar/propiedades.php?rubro=venta&propiedad_id=313139"/>
   <meta property="og:image" content="http://www.buscadorprop.com.ar/img/prop_new_b/313/00313139-01.jpg"/>
 <title>${title}  - Savo Propiedades</title>
-<meta name="description" content="NUEVAS CONDICIONES - CASA EN VENTA - EXCELENTE ZONA - ACEPTA PERMUTA !!  - Savo Propiedades" />
-<meta name="keywords" content="NUEVAS CONDICIONES - CASA EN VENTA - EXCELENTE ZONA - ACEPTA PERMUTA !! " />
+<meta name="description" content="${title}"  - Savo Propiedades" />
+<meta name="keywords" content="${title}" />
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />  <link rel="stylesheet" href="style.css" type="text/css">
     <link rel="stylesheet" href="estilo.css" type="text/css">
   <script src="Scripts/AC_RunActiveContent.js" type="text/javascript"></script>
@@ -137,8 +137,8 @@
 <td align="left">
 
 <!-- links -->
-<a href="listado.php?localidad_id=19" class="botonera">Monte Grande</a> /
-<a href="listado_full.php?rubro=venta&localidad_id=19&tipo_propiedad_id=1" class="botonera">Venta (Casas)</a>
+<a href="listado.php?localidad_id=19" class="botonera">${city_area}</a> /
+<a href="listado_full.php?rubro=venta&localidad_id=19&tipo_propiedad_id=1" class="botonera">${type} (${property_type})</a>
 <a href="/propiedades.php?rubro=venta&propiedad_id=313139&imprimir=1" target="_blank"><img src="http://www.buscadorprop.com.ar/web_basica/img/fileprint.png" align="absmiddle" alt="imprimir" title="imprimir" style="vertical-align: middle;"></a>
 <a href="/propiedades.php?rubro=venta&propiedad_id=313139&imprimir=1" target="_blank">imprimir</a>
 
@@ -205,8 +205,8 @@
 <div style="margin-bottom: 5px;">
 <table class="titulo" cellspacing="0">
   <tr>
-    <td class="nombre">NUEVAS CONDICIONES - CASA EN VENTA - EXCELENTE ZONA - ACEPTA PERMUTA !! </td>
-    <td class="codigo">Código: SAV180</td>
+    <td class="nombre">${title}</td>
+    <td class="codigo">${id}</td>
   </tr>
 </table>
 </div>
@@ -283,10 +283,10 @@
       <div class="titulo_propiedades"><b>Sumario</b></div>
       <table cellpadding="0" cellspacing="0">
         <tr colspan="2">
-          <td>Dirección: VALENTIN ALSINA 334.</td>
+          <td>Dirección: ${address}.</td>
         </tr>
         <tr colspan="2">
-          <td>Localidad: Monte Grande (1842).          </td>
+          <td>Localidad: ${city_area} (1842).          </td>
         </tr>
       </table>
     </td>
@@ -294,7 +294,7 @@
   <tr>
     <td valign="top">
       <div class="titulo_propiedades"><b>Descripción</b></div>
-      Hermosa Casa en venta <strong>- </strong>Excelente ubicaci&oacute;n.- <br /><br /><strong>POSIBILIDAD DE PERMUTA !!</strong> <br /><br />Construida sobre lote de: 12 m x 36 m.- <br /><br />Metros cuadrados construidos: 186 m2.- <br /><br />Cuenta todos los servicios.- <br /><br /><strong>Planta Baja</strong>: Retiro de frente, entrada vehicular techada, patio, quincho con parrilla y ba&ntilde;o completo. Ambiente calefaccionado .-<br /><br />La propiedad esta compuesta de: <br /><br /><strong>Planta Baja:</strong><br /><br />Lavadero con pileta y sector para conexi&oacute;n de lavarropa, cocina con alacena y bajo mesada con frente de madera, comedor, living, anteba&ntilde;o,&nbsp; ba&ntilde;o completo y dos dormitorios con placard y ventanales con vista al exterior.-<br /><br /><strong>Planta alta:<br /><br /> </strong>Sal&oacute;n, dormitorio con pisos de parquet, en suit , con vestidor y ba&ntilde;o completo.- <br /><br />Se entrega con calefacci&oacute;n en todos los ambientes.-<br /><br />    </td>
+      $${content}    </td>
   </tr>
   <tr>
     <td>
