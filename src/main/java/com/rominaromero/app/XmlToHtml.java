@@ -1,68 +1,71 @@
 package com.rominaromero.app;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
-
-import javax.xml.transform.Source;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.TransformerFactoryConfigurationError;
-import javax.xml.transform.stream.StreamResult;
-import javax.xml.transform.stream.StreamSource;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.rominaromero.app.xstream.factory.XStreamFactory;
+import com.rominaromero.model.Ad;
 import com.rominaromero.model.Trovit;
 import com.thoughtworks.xstream.XStream;
+
+import freemarker.template.Configuration;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
+import freemarker.template.TemplateExceptionHandler;
 
 public class XmlToHtml {
 
     public static void main(String args[]) {
-        Source xml,xslt;
         try {
-            
+
+            /* ------------------------------------------------------------------------ */
+            /* You should do this ONLY ONCE in the whole application life-cycle: */
+
+            /* Create and adjust the configuration singleton */
+            Configuration cfg = new Configuration(Configuration.VERSION_2_3_25);
+            cfg.setDirectoryForTemplateLoading(new File(XmlToHtml.class.getResource("/templates/savo").getFile()));
+            cfg.setDefaultEncoding("UTF-8");
+            cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
+            cfg.setLogTemplateExceptions(false);
+
+            /* ------------------------------------------------------------------------ */
             XStream xstream = XStreamFactory.getInstance();
-            
-            //recover the object with all the data
+
+            // recover the object with all the data
             Trovit trovit = (Trovit) xstream.fromXML(new URL("http://www.buscadorprop.com.ar/savo_feed.php"));
-            
-            xml = new StreamSource(new URL("http://www.buscadorprop.com.ar/savo_feed.php").openStream());
-            xslt = new StreamSource(XmlToHtml.class.getResourceAsStream("/savo/savo.xslt"));
-            
-            //conversion to html
-            //convertXMLToHTML(xml, xslt);
+
+            // conversion to html
+            convertXMLToHTML(trovit.getAds(),cfg);
         } catch (MalformedURLException e) {
             System.err.println(e.getMessage());
         } catch (IOException e) {
             System.err.println(e.getMessage());
+        } catch (TemplateException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
     }
 
-    public static void convertXMLToHTML(Source xml, Source xslt) {
-        StringWriter sw = new StringWriter();
- 
-        try {
- 
-            FileWriter fw = new FileWriter("/home/romina/product.html");
-            TransformerFactory tFactory = TransformerFactory.newInstance();
-            Transformer trasform = tFactory.newTransformer(xslt);
-            trasform.transform(xml, new StreamResult(sw));
-            fw.write(sw.toString());
-            fw.close();
- 
-            System.out
-                    .println("product.html generated successfully at D:\\template ");
- 
-        } catch (IOException | TransformerConfigurationException e) {
-            e.printStackTrace();
-        } catch (TransformerFactoryConfigurationError e) {
-            e.printStackTrace();
-        } catch (TransformerException e) {
-            e.printStackTrace();
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    public static void convertXMLToHTML(List<Ad> advertisers, Configuration cfg) throws IOException, TemplateException {
+        Map root = new HashMap();
+
+        for (Ad advertiser : advertisers) {
+            root.put("title", advertiser.getTitle());
+            
+            // create each single product page
+            /* Get the template (uses cache internally) */
+            Template temp = cfg.getTemplate("singleProperty.ftlh");
+            
+            /* Merge data-model with template */
+            FileWriter fw = new FileWriter("/home/romina/product-"+advertiser.getId()+".html");
+            temp.process(root, fw);
         }
     }
 }
