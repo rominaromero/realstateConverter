@@ -7,13 +7,13 @@
   <meta http-equiv="content-language" content="es" />
       
   <meta property="og:type" content="article" /> 
-  <meta property="og:title" content="Savo Propiedades - ${property_type} en ${city_area}"/>
-  <meta property="og:description" content="${title}  - Savo Propiedades - ${property_type} en ${city_area}"/>
+  <meta property="og:title" content="Savo Propiedades - ${ad.ad.property_type} en ${ad.ad.city_area}"/>
+  <meta property="og:description" content="${ad.title}  - Savo Propiedades - ${ad.property_type} en ${ad.city_area}"/>
   <meta property="og:url" content="http://www.savopropiedades.com.ar/propiedades.php?rubro=venta&propiedad_id=313139"/>
   <meta property="og:image" content="http://www.buscadorprop.com.ar/img/prop_new_b/313/00313139-01.jpg"/>
-<title>${title}  - Savo Propiedades</title>
-<meta name="description" content="${title}"  - Savo Propiedades" />
-<meta name="keywords" content="${title}" />
+<title>${ad.title}  - Savo Propiedades</title>
+<meta name="description" content="${ad.title}"  - Savo Propiedades" />
+<meta name="keywords" content="${ad.title}" />
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />  <link rel="stylesheet" href="style.css" type="text/css">
     <link rel="stylesheet" href="estilo.css" type="text/css">
   <script src="Scripts/AC_RunActiveContent.js" type="text/javascript"></script>
@@ -137,8 +137,8 @@
 <td align="left">
 
 <!-- links -->
-<a href="listado.php?localidad_id=19" class="botonera">${city_area}</a> /
-<a href="listado_full.php?rubro=venta&localidad_id=19&tipo_propiedad_id=1" class="botonera">${type} (${property_type})</a>
+<a href="listado.php?localidad_id=19" class="botonera">${ad.city_area}</a> /
+<a href="listado_full.php?rubro=venta&localidad_id=19&tipo_propiedad_id=1" class="botonera">${ad.type} (${ad.property_type})</a>
 <a href="/propiedades.php?rubro=venta&propiedad_id=313139&imprimir=1" target="_blank"><img src="http://www.buscadorprop.com.ar/web_basica/img/fileprint.png" align="absmiddle" alt="imprimir" title="imprimir" style="vertical-align: middle;"></a>
 <a href="/propiedades.php?rubro=venta&propiedad_id=313139&imprimir=1" target="_blank">imprimir</a>
 
@@ -205,8 +205,8 @@
 <div style="margin-bottom: 5px;">
 <table class="titulo" cellspacing="0">
   <tr>
-    <td class="nombre">${title}</td>
-    <td class="codigo">${id}</td>
+    <td class="nombre">${ad.title}</td>
+    <td class="codigo">${ad.id}</td>
   </tr>
 </table>
 </div>
@@ -283,10 +283,10 @@
       <div class="titulo_propiedades"><b>Sumario</b></div>
       <table cellpadding="0" cellspacing="0">
         <tr colspan="2">
-          <td>Dirección: ${address}.</td>
+          <td>Dirección: ${ad.address}.</td>
         </tr>
         <tr colspan="2">
-          <td>Localidad: ${city_area} (1842).          </td>
+          <td>Localidad: ${ad.city_area} (1842).          </td>
         </tr>
       </table>
     </td>
@@ -294,7 +294,7 @@
   <tr>
     <td valign="top">
       <div class="titulo_propiedades"><b>Descripción</b></div>
-      $${content}    </td>
+      $${ad.content}    </td>
   </tr>
   <tr>
     <td>

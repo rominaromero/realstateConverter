@@ -57,7 +57,7 @@ public class XmlToHtml {
         Map root = new HashMap();
 
         for (Ad advertiser : advertisers) {
-            root.put("title", advertiser.getTitle());
+            root.put("ad", advertiser);
             
             // create each single product page
             /* Get the template (uses cache internally) */
