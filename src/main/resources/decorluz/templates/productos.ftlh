@@ -121,96 +121,25 @@
                 <li data-filter="6">Infantiles</li>
             </ul>
      
+            <#list products as product>
             <div class="filtr-container wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.1s">
-                <div class=" col-md-4 filtr-item" data-category="1" data-sort="Busy streets">
-					<a href="images/productos/candil/hades.jpg" class="b-link-stripe b-animate-go  swipebox">
+				<div class=" col-md-4 filtr-item" data-category="${product.category}" data-sort="Busy streets">
+					<a href="${product.url}" class="b-link-stripe b-animate-go  swipebox">
 						<div class="item item-type-double">
 							<div class="item-hover">
 								<div class="item-info">
-									<div class="date">Linea Candil</div>			
+									<div class="date">Linea ${product.line?cap_first}</div>			
 									<div class="line"></div>			
-									<div class="headline">Modelo Hades</div>
+									<div class="headline">Modelo ${product.model?cap_first}</div>
 									<div class="line"></div>
 								</div>
 								<div class="mask"></div>
 							</div>
-							<div class="item-img"><img src="images/productos/candil/hades.jpg" alt=" " /></div>
+							<div class="item-img"><img src="${product.url}" alt="${product.model}" /></div>
 						</div>
 					</a>
                 </div>
-                
-                <div class="filtr-container wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.1s">
-                <div class=" col-md-4 filtr-item" data-category="4" data-sort="Busy streets">
-					<a href="images/productos/candil/julia-1.jpg" class="b-link-stripe b-animate-go  swipebox">
-						<div class="item item-type-double">
-							<div class="item-hover">
-								<div class="item-info">
-									<div class="date">Linea Candil</div>			
-									<div class="line"></div>			
-									<div class="headline">Modelo Julia</div>
-									<div class="line"></div>
-								</div>
-								<div class="mask"></div>
-							</div>
-							<div class="item-img"><img src="images/productos/candil/julia-1.jpg" alt=" " /></div>
-						</div>
-					</a>
-                </div>
-                
-                <div class="filtr-container wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.1s">
-                <div class=" col-md-4 filtr-item" data-category="1" data-sort="Busy streets">
-					<a href="images/productos/candil/julia-2.jpg" class="b-link-stripe b-animate-go  swipebox">
-						<div class="item item-type-double">
-							<div class="item-hover">
-								<div class="item-info">
-									<div class="date">Linea Candil</div>			
-									<div class="line"></div>			
-									<div class="headline">Modelo Julia</div>
-									<div class="line"></div>
-								</div>
-								<div class="mask"></div>
-							</div>
-							<div class="item-img"><img src="images/productos/candil/julia-2.jpg" alt=" " /></div>
-						</div>
-					</a>
-                </div>
-                
-                <div class="filtr-container wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.1s">
-                <div class=" col-md-4 filtr-item" data-category="1" data-sort="Busy streets">
-					<a href="images/productos/candil/julia-3.jpg" class="b-link-stripe b-animate-go  swipebox">
-						<div class="item item-type-double">
-							<div class="item-hover">
-								<div class="item-info">
-									<div class="date">Linea Candil</div>			
-									<div class="line"></div>			
-									<div class="headline">Modelo Julia</div>
-									<div class="line"></div>
-								</div>
-								<div class="mask"></div>
-							</div>
-							<div class="item-img"><img src="images/productos/candil/julia-3.jpg" alt=" " /></div>
-						</div>
-					</a>
-                </div>
-                <div class="filtr-container wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.1s">
-                <div class=" col-md-4 filtr-item" data-category="1" data-sort="Busy streets">
-					<a href="images/productos/candil/julia-4.jpg" class="b-link-stripe b-animate-go  swipebox">
-						<div class="item item-type-double">
-							<div class="item-hover">
-								<div class="item-info">
-									<div class="date">Linea Candil</div>			
-									<div class="line"></div>			
-									<div class="headline">Modelo Julia</div>
-									<div class="line"></div>
-								</div>
-								<div class="mask"></div>
-							</div>
-							<div class="item-img"><img src="images/productos/candil/julia-4.jpg" alt=" " /></div>
-						</div>
-					</a>
-                </div>
-               
-               
+			</#list>
                
                <div class="clearfix"> </div>
             </div>

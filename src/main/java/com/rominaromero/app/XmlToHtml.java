@@ -9,9 +9,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.rominaromero.app.xstream.factory.XStreamFactory;
 import com.rominaromero.model.Ad;
 import com.rominaromero.model.Trovit;
+import com.rominaromero.xstream.factory.XStreamFactory;
 import com.thoughtworks.xstream.XStream;
 
 import freemarker.template.Configuration;

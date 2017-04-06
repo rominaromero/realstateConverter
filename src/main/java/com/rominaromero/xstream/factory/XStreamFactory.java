@@ -1,4 +1,4 @@
-package com.rominaromero.app.xstream.factory;
+package com.rominaromero.xstream.factory;
 
 import com.rominaromero.model.Ad;
 import com.rominaromero.model.Picture;
