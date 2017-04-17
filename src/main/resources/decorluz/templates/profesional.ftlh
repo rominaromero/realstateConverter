@@ -87,8 +87,8 @@
 						<ul class="nav1 nav navbar-nav nav-wil">
 								<li><a data-hover="Home" href="index.html">Home</a></li>
 								<li><a data-hover="NOSOTROS" href="nosotros.html">Nosotros</a></li>
-								<li><a class="active" data-hover="PRODUCTOS" href="productos.html">Productos</a></li>
-								<li><a data-hover="PROFESIONAL" href="profesional.html">Profesional</a></li>
+								<li><a data-hover="PRODUCTOS" href="productos.html">Productos</a></li>
+								<li><a class="active" data-hover="PROFESIONAL" href="profesional.html">Profesional</a></li>
 								<li><a data-hover="CONTACTO" href="#Contact" class="scroll">Contacto</a></li>
 						</ul>
 					</nav>
@@ -113,12 +113,6 @@
 		<div class="gallery_gds">
 			<ul class="simplefilter wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.1s">
                 <li class="active" data-filter="all">Todos</li>
-                <li data-filter="1">Colgantes</li>
-                <li data-filter="2">De Pie</li>
-                <li data-filter="3">Arañas</li>
-                <li data-filter="4">De Pared</li>
-                <li data-filter="5">Exterior</li>
-                <li data-filter="6">Infantiles</li>
             </ul>
      
             <div class="filtr-container wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.1s">

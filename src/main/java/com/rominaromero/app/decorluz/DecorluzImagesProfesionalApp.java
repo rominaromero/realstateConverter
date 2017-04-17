@@ -20,7 +20,7 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateExceptionHandler;
 
-public class DecorluzImagesApp {
+public class DecorluzImagesProfesionalApp {
 
 	public static void main(String[] args) {
 		URI uri = null;
@@ -37,16 +37,16 @@ public class DecorluzImagesApp {
 			cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
 			cfg.setLogTemplateExceptions(false);
 
-			uri = DecorluzImagesApp.class.getResource("/decorluz/images/productos").toURI();
+			uri = DecorluzImagesProfesionalApp.class.getResource("/decorluz/images/profesional").toURI();
 			Path path = Paths.get(uri);
 			root.put("products", listDirectoryAndFiles(path));
 
 			// create each single product page
 			/* Get the template (uses cache internally) */
-			Template temp = cfg.getTemplate("productos.ftlh");
+			Template temp = cfg.getTemplate("profesional.ftlh");
 
 			/* Merge data-model with template */
-			FileWriter fw = new FileWriter("c:/romina/productos.html");
+			FileWriter fw = new FileWriter("/home/romina/Sites/decorluz/profesional.html");
 			temp.process(root, fw);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -59,20 +59,14 @@ public class DecorluzImagesApp {
 		List<Product> products = new ArrayList<Product>();
 
 		for (Path p : linePath) {
-			Product product = new Product();
-			product.setLine(p.getFileName().toString());
-
 			DirectoryStream<Path> modelPath = Files.newDirectoryStream(p);
-
 			for (Path p2 : modelPath) {
-				product.setModel(p2.getFileName().toString());
-				DirectoryStream<Path> imagesPath = Files.newDirectoryStream(p2);
-
-				for (Path p3 : imagesPath) {
-					product.setUrl(p3.subpath(p3.getNameCount() - 5, p3.getNameCount()).toString());
-					product.setCategory(recoverCategory(p3.getFileName().toString()));
+				    Product product = new Product();
+				    product.setLine(p.getFileName().toString());
+				    product.setModel(p2.getFileName().toString());
+					product.setUrl(p2.subpath(p2.getNameCount() - 4, p2.getNameCount()).toString());
+					product.setCategory(recoverCategory(p2.getFileName().toString()));
 					products.add(product);
-				}
 			}
 		}
 
